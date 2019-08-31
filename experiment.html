@@ -4,15 +4,59 @@
         <script type="text/javascript">
 
             // var link = "https://www.xbiquge.cc/book/24276/";
+            function act(){
+                toPage();
+            }
             
             function toPage(){
-                // var link = "https://www.xbiquge.cc/book/24276/";
-                // window.open(link);
-                var link = "https://www.qidian.com/";
+                var link = "https://www.xbiquge.cc/book/24276/";
+                // var link = "https://www.qidian.com/";
 
-                self.location.href = link;
-                toPage2();
+                window.location.href = link;
+                act2();
+                }
+            function act2(){
+                setTimeout(function (){
+                    elem = document.querySelector("a[href='33386988.html']");
+                triggerEvent(elem,'mouseclick');
+                },3000);
+                
             }
+
+        function triggerEvent(el, type){
+            if ('createEvent' in document) {
+            // modern browsers, IE9+
+            var e = document.createEvent('HTMLEvents');
+            e.initEvent(type, false, true);
+            el.dispatchEvent(e);
+            } else {
+            // IE 8
+            var e = document.createEventObject();
+            e.eventType = type;
+            el.fireEvent('on'+e.eventType, e);
+        }
+    }
+    
+	   function tast(){
+        setTimeout(function() {
+    // IE
+    if(document.all) {
+        $("clickMe").click();
+    }
+    // 其它浏览器
+    else {
+        var e = document.createEvent("MouseEvents");
+        e.initEvent("click", true, true);
+        // document.getElementById("clickMe").dispatchEvent(e);
+        // clik = $("clickme").document.dispatchEvent(e);
+        document.querySelector('a[id = "clickMe"]').dispatchEvent(e);
+
+
+    }
+}, 2000);
+  
+	   }
+
 
             function toPage2(){
                 setTimeout(function () {
@@ -42,7 +86,9 @@
                     <br><br>
                     <input type="submit" value="login" >
                   </form>  -->
-        <button onclick="toPage()" > perform</button>
+        <button onclick="act()" > perform</button>
+        <a href="http://www.sinmeng.net" id="clickMe" onclick="alert('clicked');">梦搏网络</a>
+
     </body>
     </body>
     
