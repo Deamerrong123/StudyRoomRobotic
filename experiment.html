@@ -1,6 +1,7 @@
 <html>
     <head>
-        <script>
+        <script src = "jquery-3.4.1.js"></script>   
+        <script type="text/javascript">
 
             // var link = "https://www.xbiquge.cc/book/24276/";
             
@@ -10,11 +11,16 @@
                 var link = "https://www.qidian.com/";
 
                 self.location.href = link;
+                toPage2();
             }
 
             function toPage2(){
                 setTimeout(function () {
-                    document.getElementById("qd_A15").click();
+                    // var button = $("a[data-eid='qd_A15']");
+                    var e = document.createEvent("MouseEvents");
+                    e.initEvent("click", true, true);
+                    $("a[data-eid='qd_A15']").dispatchEvent(e);
+                    // button.click();
                 },3000);
                 
             }
@@ -39,5 +45,6 @@
         <button onclick="toPage()" > perform</button>
     </body>
     </body>
+    
 </html>
 
