@@ -3,33 +3,22 @@
         <script>
 
             // var link = "https://www.xbiquge.cc/book/24276/";
-            function act(){
-                pass;
-            }
-
+            
             function toPage(){
-                var link = "https://www.xbiquge.cc/book/24276/";
+                // var link = "https://www.xbiquge.cc/book/24276/";
                 // window.open(link);
+                var link = "https://www.qidian.com/";
+
                 self.location.href = link;
-                toPage2();
             }
 
             function toPage2(){
-                setTimeout(function (){
-                    alert('Working ! ');
-                },1000);
+                setTimeout(function () {
+                    document.getElementById("qd_A15").click();
+                },3000);
+                
             }
 
-            
-            
-
-            function openWin(tag,obj)
-         {
-             obj.target="_self";
-             obj.href = "Web/Substation/Substation.aspx?stationno="+tag;
-             obj.click();
-         }
-            
             function warning(){
                 window.alert("No function yet !");
             }
