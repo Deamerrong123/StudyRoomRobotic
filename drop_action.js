@@ -1,9 +1,9 @@
-const Tm = 46; // the time for executing
+const Tm = 27; // the time for executing
 const Ts = 05;
 var dT; // Time before execution
 var logInField = document.querySelector("input[id = 'loginsubmitbutton']");
 var TomorrowButton = document.querySelector("input[value = 'TOMORROW']");
-var TechRoom = document.querySelector('a[onclick]'); // this is not working
+// var TechRoom = document.querySelector('a[onclick]'); // this is not working
 
 
 var time = new Date();
@@ -83,23 +83,24 @@ function ReserveWin(Room,T_S,rn,T){
     showPopUpReserve(this,'Room 5','3:30 pm','13','','184','1567366200','8','1','<option value=\'60\'>60 mins</option><option value=\'30\'>30 mins</option>','1-8','');
     // showPopUpReserve(this,Room,T_S,'13','',rn,T,'8','1','<option value=\'60\'>60 mins</option><option value=\'30\'>30 mins</option>','1-8','')
     // showPopUpReserve(obj,roomname,time_str,group,altusernamestr,roomid,currentmdyandtime,capacity,maxdur,durationhtml,capacity_string,optionalfields_string){}
-    showPopUpReserve('Room 5','3:30 pm','13','','184','1567366200','8','1','<option value=\'60\'>60 mins</option><option value=\'30\'>30 mins</option>','1-8','');
+    // showPopUpReserve('Room 5','3:30 pm','13','','184','1567366200','8','1','<option value=\'60\'>60 mins</option><option value=\'30\'>30 mins</option>','1-8','');
 }
 
-function act(b,e,t){
+function act(b,e,t = 1000){
     // setTimeout(ClkTomor,t);
     begin = ''.concat(b);
     end = ''.concat(e);
     T = Time.getTime(true,3,30);
     // setTimeout(ClkThchRoom,t,begin,end);
-    ReserveWin('Room 5','3:30 pm','184',T);
+    setTimeout(ReserveWin,t,'Room 5','3:30 pm','184',T);
+    // ReserveWin('Room 5','3:30 pm','184',T);
 }
 
 dT = ((Tm-time.getMinutes())*60 + (Ts - time.getSeconds()))*1000;
 Today = Time.Today();
 TodayEnd = Time.EndofToday();
 
-setTimeout(act,2000,(Today,TodayEnd,dT));
+act(Today,TodayEnd,t = dT)
 
 
 
