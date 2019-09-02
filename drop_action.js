@@ -91,8 +91,8 @@ function act(b,e,t = 1000){
     begin = ''.concat(b);
     end = ''.concat(e);
     T = Time.getTime(true,3,30);
-    // setTimeout(ClkThchRoom,t,begin,end);
-    setTimeout(ReserveWin,t,'Room 5','3:30 pm','184',T);
+    setTimeout(ClkThchRoom,t,begin,end);
+    // setTimeout(ReserveWin,t,'Room 5','3:30 pm','184',T);
     // ReserveWin('Room 5','3:30 pm','184',T);
 }
 
