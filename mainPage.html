@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src = 'logFunction.js'>
-            </script>
+        <script src = "jquery-3.4.1.js"></script>
+        <script src = 'logFunction.js'></script>
+        
+            
     </head>
 <body>
+    
 
 <!-- <h2>HTML Forms</h2> -->
 
-<form target="_self">
+<form id="authentication" onsubmit="javascript:return false" action="">
   First name:<br>
   <input type="text" name="Username" id = "usernamefield">
   <br>
   Last name:<br>
-  <input type="text" name="Passward"  id = "passwardfield">
+  <input type="text" name="Passward"  id = "passwordfield">
   <br><br>
-  <input type="submit" value="login" >
+  <input class = 'button' type="submit" value="login" onclick = "javascript:load()">
 </form> 
 
-<!-- <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p> -->
+<!-- <button onclick="load()" > perform</button> -->
 
 </body>
 </html>
