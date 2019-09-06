@@ -134,5 +134,27 @@ class Counter:
         self.label = tkinter.Label(self.frame,textvariable = self.states)
         self.pack()
 
+        ## Buttons to control application.
+        self.up = tkinter.Button(self.frame,text = 'UP',command = self.up_click)
+        self.up.pack(side = 'left')
+
+        self.rigt = tkinter.Button(self.frame,text = 'quit',
+                                   command = self.quit_click)
+        self.right.pack(side = 'left')
+
+    def up_click(self):
+        '''Handle click on 'up' button'''
+        self.state.set(self.state.get() + 1)
+
+    def quit_click(self):
+        '''Handle click on 'quit' button'''
+        self.parent.destory()
+
+if __name__ == '__main__':
+    window = tkinter.Tk()
+    myapp = Counter(window)
+    window.mainloop()
+
+
 
 window.mainloop()
