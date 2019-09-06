@@ -71,17 +71,68 @@ window = tkinter.Tk()
 ##
 
 #### Laying out the Widgets
+# frame = tkinter.Frame(window)
+# frame.pack()
+# label = tkinter.Label(frame,text = 'Name : ')
+# # label.pack(side = 'left')
+# label.grid(row = 0,column = 0)
+#
+# entry = tkinter.Entry(frame)
+# # entry.pack(side = 'left')
+# entry.grid(row = 1, column =1)
+
+## Using Text
+# def cross(text):
+#     text.insert(tkinter.INSERT,'X')
+# frame = tkinter.Frame(window)
+# frame.pack()
+#
+# text = tkinter.Text(frame,height = 3 ,width = 10)
+# text.pack()
+#
+# button = tkinter.Button(frame,text = 'Add',command = lambda: cross(text))
+# button.pack()
+
+## USing Checkbuttons
 frame = tkinter.Frame(window)
 frame.pack()
-label = tkinter.Label(frame,text = 'Name : ')
+# red = tkinter.IntVar()
+# green = tkinter.IntVar()
+# blue = tkinter.IntVar()
+#
+# for (name, var) in (('R',red), ('G',green),('B',blue)):
+#     check = tkinter.Checkbutton(frame,text = name, variable= var)
+#     check.pack(side = 'left')
+#
+# def recolor(widget,r,g,b):
+#     color = '#'
+#     for var in (r,g,b):
+#         color += 'FF' if var.get() else '00'
+#     widget.config(bg = color)
+#
+# label = tkinter.Label(frame,text = '[         ]')
+# button = tkinter.Button(frame,text = 'update' ,
+#                         command = lambda : recolor(label,red,green,blue))
+# button.pack(side = 'left')
 # label.pack(side = 'left')
-label.grid(row = 0,column = 0)
 
-entry = tkinter.Entry(frame)
-# entry.pack(side = 'left')
-entry.grid(row = 1, column =1)
+## OOP
+class Counter:
+    def _init_(self,parent):
+        '''Create the GUI'''
+
+        # Framework
+        self.parent = parent
+        self.frame = tkinter.Frame(parent)
+        self.frame.pack()
+
+        # Model
+        self.state = tkinter.IntVar()
+        self.state.set(1)
+
+        # Label displaying current state
+        self.label = tkinter.Label(self.frame,textvariable = self.states)
+        self.pack()
 
 
-    
 window.mainloop()
-
