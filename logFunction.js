@@ -1,7 +1,9 @@
 // https://www.baruch.cuny.edu/library/reservaroom/
 // https://www.baruch.cuny.edu/library/reservaroom/
 
-
+var newWin;
+var newConsole;
+var newDoc;
 function loger(un,pw){
     this.username = un;
     this.password = pw;
@@ -32,19 +34,17 @@ sel_u = loger(document.getElementById('usernamefield'),document.getElementById('
 
 
 function load (){
-    window.location.href = "https://www.baruch.cuny.edu/library/reservaroom/";
-    // if ($(document).ready()){
-    //     username = document.getElementById('usernamefield');
-    //     password = document.getElementById('passwordfild');
-    //     logIn = document.getElementById('loginsubmitbutton');
+    url = "https://www.baruch.cuny.edu/library/reservaroom/";
+    winName = "BaruchLogin Page";
+    strWindowFeatures = "menubar = yes , locatioin = yes, resizable = yes,\
+        scrollbar = yes , status = yes, width = 200, height = 100";
 
-    //     username.value = sel_u.getUsername();
-    //     password.value = sel_u.getPassword();
+    newWin = window.open(url,"","width = 600 , height = 400");
 
-    //     triggerEvent(logIn,'click');
+    setTimeout(function (){
+        newDoc = newWin.document();
+       
+    },1000);
 
-    // }
-    // else{
-    //     pass;
-    // }
+    
 }
