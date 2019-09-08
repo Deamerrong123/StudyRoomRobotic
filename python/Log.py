@@ -1,6 +1,7 @@
 #https://www.baruch.cuny.edu/library/reservaroom/
 from urllib import request,parse
 from http.cookiejar import CookieJar
+from bs4 import BeautifulSoup
 
 class Loger:
     headers = {
@@ -13,7 +14,7 @@ class Loger:
         'q.rong','y.bai1'
     }
 
-    def __int__(self,URL,username,password):
+    def __init__(self,URL,username,password):
         self.URL = URL
         self._username = username
         self._password = password
@@ -29,8 +30,19 @@ class Loger:
 
         if self._username in Loger.username_dic:
             req = request.Request(self.URL,data = parse.urlencode(
-                self.data).endcode('utf-8'),headers=Loger.headers)
-            self.opener.open(req)
+                self._data).encode('utf-8'),headers=Loger.headers)
+            respond = self.opener.open(req)
+        return respond
+
+    def loged(self):
+        page = self.log().read
+        soup = BeautifulSoup(page,'html.parser')
+        logname = soup.find_all('span',class_=  'username')
+
+        print(logname.contents)
+
+
+
 
 
 
@@ -38,7 +50,9 @@ class Loger:
 
 if __name__ == '__main__':
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
-    # respond = requests.get(URL).headers
-    # print(respond)
+    loger = Loger(URL,'q.rong','97Dec023781')
+    loger.log()
+    loger.loged()
+
 
 
