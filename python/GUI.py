@@ -1,6 +1,6 @@
 import tkinter
 
-window = tkinter.Tk()
+# window = tkinter.Tk()
 ##label = tkinter.Label(window,text = 'This is out label.')
 ##label.pack()
 ##label.config(text = 'Second label')
@@ -94,8 +94,8 @@ window = tkinter.Tk()
 # button.pack()
 
 ## USing Checkbuttons
-frame = tkinter.Frame(window)
-frame.pack()
+# frame = tkinter.Frame(window)
+# frame.pack()
 # red = tkinter.IntVar()
 # green = tkinter.IntVar()
 # blue = tkinter.IntVar()
@@ -157,4 +157,4 @@ if __name__ == '__main__':
 
 
 
-window.mainloop()
+# window.mainloop()
