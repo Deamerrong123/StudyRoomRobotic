@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 class Loger:
     headers = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
-        'cookie':''
+        
     }
     cookiejar = CookieJar()
     handler =  request.HTTPCookieProcessor(cookiejar)
@@ -47,9 +47,6 @@ class Loger:
 
 if __name__ == '__main__':
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
-    loger = Loger(URL,'q.rong','97Dec023781')
-    loger.loaded()
-
 
 
 
