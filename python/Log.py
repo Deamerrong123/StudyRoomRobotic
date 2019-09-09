@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 
 class Loger:
     headers = {
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
+        'cookie':''
     }
     cookiejar = CookieJar()
     handler =  request.HTTPCookieProcessor(cookiejar)
@@ -25,7 +26,9 @@ class Loger:
 
 
     def log(self):
+        respond = None
         if self._username not in Loger.username_dic:
+            respond = False
             raise ValueError
 
         if self._username in Loger.username_dic:
@@ -34,20 +37,18 @@ class Loger:
             respond = self.opener.open(req)
         return respond
 
-    def loged(self):
+    def loaded(self):
         ## determined if we're redirected into a the personal page,
         ## with the unsername on the span, class = 'username'
-        page = self.log().read
 
-
-
-
-
-
-
+        page = self.log()
+        with open('loggedPage.html','w',encoding = 'utf-8') as f:
+            f.write(page.read().decode('utf-8'))
 
 if __name__ == '__main__':
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
+    loger = Loger(URL,'q.rong','97Dec023781')
+    loger.loaded()
 
 
 

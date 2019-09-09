@@ -72,6 +72,8 @@ class logPage:
 
 
     def _log(self):
+        ## determine the username and passward is correct,
+        ## and it has the authority to assess
         messagebox.showinfo(message = 'logging ... ')
 
 
