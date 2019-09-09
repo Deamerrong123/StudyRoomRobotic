@@ -35,11 +35,9 @@ class Loger:
         return respond
 
     def loged(self):
+        ## determined if we're redirected into a the personal page,
+        ## with the unsername on the span, class = 'username'
         page = self.log().read
-        soup = BeautifulSoup(page,'html.parser')
-        logname = soup.find_all('span',class_=  'username')
-
-        print(logname.contents)
 
 
 
@@ -50,9 +48,7 @@ class Loger:
 
 if __name__ == '__main__':
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
-    loger = Loger(URL,'q.rong','97Dec023781')
-    loger.log()
-    loger.loged()
+
 
 
 
