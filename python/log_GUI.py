@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import ttk, filedialog, messagebox
 
 class logPage:
-    def __init__(self,parent):
-        self._parent = parent
+    def __init__(self):
+        self._parent = Tk()
         self._mainframe = ttk.Frame(self._parent,padding = '5 5 5 5')
         ## mainframe
         self._mainframe.grid(row = 0 , column = 0 , sticky = (E,W,N,S))
@@ -71,19 +71,32 @@ class logPage:
 
 
 
+        ## mainWin mainloop
+        self._parent.mainloop()
+
+
+
     def _log(self):
         ## determine the username and passward is correct,
         ## and it has the authority to assess
         messagebox.showinfo(message = 'logging ... ')
 
+    def _getUsername(self):
+        return self._username
+
+    def _getPassword(self):
+        return self._password
 
 
 
 
 
 
-if __name__ == '__main__':
-    root = Tk()
-    logPage(root)
-    root.mainloop()
+
+
+#
+# if __name__ == '__main__':
+#     root = Tk()
+#     logPage(root)
+#     root.mainloop()
 
