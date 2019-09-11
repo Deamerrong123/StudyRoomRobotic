@@ -1,12 +1,11 @@
-from log_GUI import *
-from Log import *
+# from log_GUI import *
+# from Log import *
+
+from python.log_GUI import logPage
 
 if __name__ == '__main__':
     GUI = logPage()
 
-
-    username = GUI._getUsername()
-    password = GUI._getPassword()
 
 
 

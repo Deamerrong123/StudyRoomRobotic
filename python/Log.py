@@ -1,7 +1,7 @@
-from urllib import request,parse
-import requests
-from http.cookiejar import CookieJar
-from bs4 import BeautifulSoup
+# from urllib import request,parse
+# import requests
+# from http.cookiejar import CookieJar
+# from bs4 import BeautifulSoup
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -37,8 +37,19 @@ class Loger:
     def logged(self):
         try:
             pass
+
         except:
             pass
+
+    def ReserseRoom(self):
+        self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
+        self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
+        ## //*[@id="dayviewTable"]/tbody/tr[19]/td[6]/img
+        self._browser.find_element_by_xpath('//*[@id="dayviewTable"]/tbody/tr[19]/td[6]/img').click()
+        popup = self._browser.find_element_by_id('popup')
+        # if popup.is_displayed():
+        #     self._browser.find_element_by_link_text('Yes').click()
+
 
 
 # if __name__ == '__main__':

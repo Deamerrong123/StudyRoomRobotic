@@ -1,7 +1,11 @@
 from tkinter import *
 from tkinter import ttk, filedialog, messagebox
+# from Log import *
+from python.Log import Loger
+
 
 class logPage:
+    URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
     def __init__(self):
         self._parent = Tk()
         self._mainframe = ttk.Frame(self._parent,padding = '5 5 5 5')
@@ -80,12 +84,16 @@ class logPage:
         ## determine the username and passward is correct,
         ## and it has the authority to assess
         messagebox.showinfo(message = 'logging ... ')
+        loger = Loger(logPage.URL,self._getUsername(),self._getPassword())
+        loger.log()
+
+
 
     def _getUsername(self):
-        return self._username
+        return self._username.get()
 
     def _getPassword(self):
-        return self._password
+        return self._password.get()
 
 
 
