@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk, filedialog, messagebox
+from time import sleep
 # from Log import *
 from Log import Loger
 
@@ -29,12 +30,14 @@ class logPage:
         self._username_field.grid(row = 0 , column = 0,
                                   sticky = (E,W,N,S))
         self._username = StringVar()
+        self._username.set('Username')
 
         self._username_Entry = ttk.Entry(self._username_field,width = 20 ,
                                      textvariable = self._username)
         self._username_Entry.grid(row = 0 , column = 0, sticky = (W,E))
 
         self._password = StringVar()
+        self._password.set('Password')
         self._password_field = ttk.LabelFrame(self._user_frame, text = 'Password',padding = '5 5 5 5')
         self._password_field.grid(row = 1, column = 0, sticky = (W,E))
         self._password_Entry = ttk.Entry(self._password_field,width = 20,
@@ -49,11 +52,12 @@ class logPage:
         self._RoomLab.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
         self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = self.Room)
         self._RoomCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
+        self._RoomCbBox.set(logPage.Room[4])
         self._FromLab = ttk.Label(self._dropMenu,text = 'From :')
         self._FromLab.grid(row = 2, column = 0 , padx = 2 , sticky = (W,S,N))
         self._FromCbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
         self._FromCbBox.grid(row = 3 , column = 0,sticky = (E,S,N))
-        self._FromCbBox.set(logPage.From[0])
+        self._FromCbBox.set(logPage.From[1])
 
         self._Fromsplit = self._FromCbBox.get().split(':')
         self.ToMenu = [
@@ -90,12 +94,17 @@ class logPage:
 
 
     def _log(self):
-        ## determine the username and passward is correct,
-        ## and it has the authority to assess
-        pass
-        # messagebox.showinfo(message = 'logging ... ')
-        # loger = Loger(logPage.URL,self._getUsername(),self._getPassword())
-        # loger.log()
+        loger = Loger(logPage.URL, self._username.get(), self._password.get())
+        try:
+            loger.log()
+            sleep(.500)
+            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
+            messagebox.showinfo(message = 'Account comfirmed!')
+        except Exception as e:
+            messagebox.showerror(message = str(e))
+        finally:
+            pass
+            # loger.browserKiller()
 
 
 
