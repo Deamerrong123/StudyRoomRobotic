@@ -44,15 +44,17 @@ class Loger:
     def ReserseRoom(self,room,timeS):
         para_1 = int(room.split()[1])+1
         para_2 = (int(timeS.split(':')[0])-8+1)*2
-        para_2 += 1 if (int(timeS.split()[1]) > 0) else 0
+        para_2 += 1 if (int(timeS.split(':')[1]) > 0) else 0
 
         self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
+        sleep(.100)
         self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
-        sleep(.500)
+        sleep(.100)
 
         self._Room = self._browser.find_element(By.XPATH,\
                                                 '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.\
                                                 format(str(para_1),str(para_2))).click()
+
 
 
 

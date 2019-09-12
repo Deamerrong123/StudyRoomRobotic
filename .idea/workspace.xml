@@ -199,7 +199,8 @@
       <workItem from="1568086239607" duration="11390000" />
       <workItem from="1568172444351" duration="4417000" />
       <workItem from="1568254544521" duration="3957000" />
-      <workItem from="1568264968384" duration="6024000" />
+      <workItem from="1568264968384" duration="6262000" />
+      <workItem from="1568303909775" duration="2146000" />
     </task>
     <servers />
   </component>
@@ -233,7 +234,7 @@
     <SUITE FILE_PATH="coverage/StudyRoom$Log.coverage" NAME="Log Coverage Results" MODIFIED="1568173535907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
     <SUITE FILE_PATH="coverage/StudyRoom$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1567788550951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
     <SUITE FILE_PATH="coverage/StudyRoom$guiscrape.coverage" NAME="guiscrape Coverage Results" MODIFIED="1567922542249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../PYTHON3.6/Edges_GUI_Scripts" />
-    <SUITE FILE_PATH="coverage/StudyRoom$main.coverage" NAME="main Coverage Results" MODIFIED="1568271002792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
+    <SUITE FILE_PATH="coverage/StudyRoom$main.coverage" NAME="main Coverage Results" MODIFIED="1568306299954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
     <SUITE FILE_PATH="coverage/StudyRoom$log_GUI.coverage" NAME="log_GUI Coverage Results" MODIFIED="1568173612150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />
   </component>
 </project>

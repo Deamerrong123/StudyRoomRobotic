@@ -16,6 +16,7 @@ class logPage:
         '18:00','18:30','19:00','19:30'
     ]
 
+
     def __init__(self):
         self._parent = Tk()
         self._mainframe = ttk.Frame(self._parent,padding = '5 5 5 5')
@@ -104,26 +105,6 @@ class logPage:
             messagebox.showerror(message = str(e))
         finally:
             pass
-            # loger.browserKiller()
 
 
-
-    def _getUsername(self):
-        return self._username.get()
-
-    def _getPassword(self):
-        return self._password.get()
-
-
-
-
-
-
-
-
-#
-# if __name__ == '__main__':
-#     root = Tk()
-#     logPage(root)
-#     root.mainloop()
 
