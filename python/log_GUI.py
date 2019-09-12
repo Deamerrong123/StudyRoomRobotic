@@ -1,11 +1,21 @@
 from tkinter import *
 from tkinter import ttk, filedialog, messagebox
 # from Log import *
-from python.Log import Loger
+from Log import Loger
 
 
 class logPage:
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
+    Room = [
+        'Room 1', 'Room 2','Room 3','Room 4','Room 5','Room 6'
+    ]
+    From = [
+        12,13,14,15,16,17,18,19
+    ]
+    To = [
+
+    ]
+
     def __init__(self):
         self._parent = Tk()
         self._mainframe = ttk.Frame(self._parent,padding = '5 5 5 5')
@@ -32,29 +42,11 @@ class logPage:
                                          textvariable = self._password)
         self._password_Entry.grid(row = 0 , column = 0 , sticky = (W,E))
 
-        ## radiofield
-        self._Radioframe = ttk.Labelframe(self._mainframe, text = 'Option')
-        self._Radioframe.grid(row = 0 , column = 1, sticky = (N,S,W,E))
-        self._choice_lbl = ttk.Label(
-            self._Radioframe, text="Pick your Option"
-        )
-        self._choice_lbl.grid(row=0, column=0, padx=5, pady=3, sticky = W)
-        self._Opt_ = StringVar()
-        self._Op1 = ttk.Radiobutton(
-            self._Radioframe,text = 'Room 4,\nfrom 15:30 - 17:30',variable = self._Opt_,
-            value = 'Op1'
-        )
-        self._Op1.grid(row = 1, column = 0, pady = 1)
-        self._Op2 = ttk.Radiobutton(
-            self._Radioframe,text = 'Room 4,\nfrom 17:30 - 19:30' ,
-            variable = self._Opt_, value = 'Op2'
-        )
-        self._Op2.grid(row = 2 , column = 0 , sticky = E,pady = 1)
-        self._Op3 = ttk.Radiobutton(
-            self._Radioframe, text = 'Room 4,\n from 12:30 - 14:30',
-            variable = self._Opt_ , value = 'Op3'
-        )
-        self._Op3.grid(row = 3 , column = 0, sticky = E , pady = 1 )
+
+        ## Dropdown mune
+        self._dropMenu = ttk.Frame(self._mainframe).grid(row = 0, column = 1 , padx = 5)
+        self._RoomSele = ttk.Label(self._dropMenu,text = 'Room :').grid(row = 0 , column = 0, padx = 2)
+        self._CbBox = ttk.Combobox(self._dropMenu,width = 15,values = self.Room).grid(row = 0, column = 1, padx = 1)
 
         ## login button
         self._log_btn = ttk.Button(
