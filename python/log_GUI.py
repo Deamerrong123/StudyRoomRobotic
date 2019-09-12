@@ -10,10 +10,9 @@ class logPage:
         'Room 1', 'Room 2','Room 3','Room 4','Room 5','Room 6'
     ]
     From = [
-        12,13,14,15,16,17,18,19
-    ]
-    To = [
-
+        '12:00','12:30','13:00','13:30','14:00','14:30',
+        '15:00','15:30','16:00','16:30','17:00','17:30',
+        '18:00','18:30','19:00','19:30'
     ]
 
     def __init__(self):
@@ -44,9 +43,27 @@ class logPage:
 
 
         ## Dropdown mune
-        self._dropMenu = ttk.Frame(self._mainframe).grid(row = 0, column = 1 , padx = 5)
-        self._RoomSele = ttk.Label(self._dropMenu,text = 'Room :').grid(row = 0 , column = 0, padx = 2)
-        self._CbBox = ttk.Combobox(self._dropMenu,width = 15,values = self.Room).grid(row = 0, column = 1, padx = 1)
+        self._dropMenu = ttk.Frame(self._mainframe)
+        self._dropMenu.grid(row = 0, column = 1)
+        self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
+        self._RoomLab.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
+        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = self.Room)
+        self._RoomCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
+        self._FromLab = ttk.Label(self._dropMenu,text = 'From :')
+        self._FromLab.grid(row = 2, column = 0 , padx = 2 , sticky = (W,S,N))
+        self._FromCbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
+        self._FromCbBox.grid(row = 3 , column = 0,sticky = (E,S,N))
+        self._FromCbBox.set(logPage.From[0])
+
+        self._Fromsplit = self._FromCbBox.get().split(':')
+        self.ToMenu = [
+            str(int(self._Fromsplit[0])+1)+':'+self._Fromsplit[1],
+            str(int(self._Fromsplit[0]) + 2) + ':' + self._Fromsplit[1],
+        ]
+        self._ToLab = ttk.Label(self._dropMenu,text = 'To :')
+        self._ToLab.grid(row = 4, column = 0 , padx = 2 , sticky = (W,S,N))
+        self._ToCbBox = ttk.Combobox(self._dropMenu,width = 7, values = self.ToMenu)
+        self._ToCbBox.grid(row = 5 , column = 0,sticky = (E,S,N))
 
         ## login button
         self._log_btn = ttk.Button(
@@ -75,9 +92,10 @@ class logPage:
     def _log(self):
         ## determine the username and passward is correct,
         ## and it has the authority to assess
-        messagebox.showinfo(message = 'logging ... ')
-        loger = Loger(logPage.URL,self._getUsername(),self._getPassword())
-        loger.log()
+        pass
+        # messagebox.showinfo(message = 'logging ... ')
+        # loger = Loger(logPage.URL,self._getUsername(),self._getPassword())
+        # loger.log()
 
 
 
