@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk, filedialog, messagebox
-from time import sleep
+from time import sleep,time
+from datetime import date,datetime
 # from Log import *
 from Log import Loger
 
@@ -15,6 +16,9 @@ class logPage:
         '15:00','15:30','16:00','16:30','17:00','17:30',
         '18:00','18:30','19:00','19:30'
     ]
+
+    T = datetime(date.today().year,\
+                 date.today().month,date.today().day).timestamp()+(60*60*24)
 
 
     def __init__(self):
@@ -85,7 +89,7 @@ class logPage:
         self._status_msg.set('Type Username and Password ... ')
         self._status = ttk.Label(
             self._status_frame, textvariable=self._status_msg, anchor=W)
-        self._status.grid(row=0, column=0, sticky=(E, W))
+        self._status.grid(row=0, column=0, sticky=(E, W))        
 
 
 
@@ -95,16 +99,17 @@ class logPage:
 
 
     def _log(self):
-        loger = Loger(logPage.URL, self._username.get(), self._password.get())
-        try:
-            loger.log()
-            sleep(.500)
-            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
-            messagebox.showinfo(message = 'Account comfirmed!')
-        except Exception as e:
-            messagebox.showerror(message = str(e))
-        finally:
-            pass
+        pass
+##        loger = Loger(logPage.URL, self._username.get(), self._password.get())
+##        try:
+##            loger.log()
+##            sleep(.500)
+##            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
+##            messagebox.showinfo(message = 'Account comfirmed!')
+##        except Exception as e:
+##            messagebox.showerror(message = str(e))
+##        finally:
+##            pass
 
 
 
