@@ -99,17 +99,19 @@ class logPage:
 
 
     def _log(self):
-        pass
-##        loger = Loger(logPage.URL, self._username.get(), self._password.get())
-##        try:
-##            loger.log()
-##            sleep(.500)
-##            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
-##            messagebox.showinfo(message = 'Account comfirmed!')
-##        except Exception as e:
-##            messagebox.showerror(message = str(e))
-##        finally:
-##            pass
+        loger = Loger(logPage.URL, self._username.get(), self._password.get())
+        self._dt = logPage.T - time()
+        self._status_msg.set('It is about to act in {} second'.format(self._dt))
+        sleep(self._dt)
+        try:
+            loger.log()
+            sleep(.500)
+            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
+            messagebox.showinfo(message = 'Account comfirmed!')
+        except Exception as e:
+            messagebox.showerror(message = str(e))
+        finally:
+            pass
 
 
 

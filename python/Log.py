@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from time import sleep
+
+import threading
 import os
 
 class Loger:
@@ -46,20 +48,34 @@ class Loger:
         para_2 = (int(timeS.split(':')[0])-8+1)*2
         para_2 += 1 if (int(timeS.split(':')[1]) > 0) else 0
 
+        sleep(.500)
         self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
-        sleep(.100)
+        sleep(.500)
         self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
-        sleep(.100)
+        sleep(.500)
 
         self._Room = self._browser.find_element(By.XPATH,\
                                                 '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.\
                                                 format(str(para_1),str(para_2))).click()
+        sleep(.500)
+##        self._browser.find_element(By.XPATH,\
+                                   
 
 
 
 
+def thread_run_func(Loger,URL,_username,_password,room,timeS):
+    loger = Loger(URL,_username,_password)
+    
 
 
-
-
+def Double_log(URL,_username,_password):
+    t1 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
+    t2 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    
+        
 
