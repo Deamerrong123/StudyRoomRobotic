@@ -23,21 +23,30 @@ class Loger:
         self._browser.get(URL)
         self._wait = WebDriverWait(self._browser,2)
 
+        self._usernameField = self._browser.find_element_by_id('usernamefield')
+        self._passwordField = self._browser.find_element_by_id('passwordfield')
 
-        ## automatically enter the username and passward
-        self._browser.find_element_by_id('usernamefield').send_keys(self._username)
-        self._browser.find_element_by_id('passwordfield').send_keys(self._password)
+
+        
 
         ## get the log_in button
         self._log_in_btn = self._browser.find_element_by_id('loginsubmitbutton')
 
-    def log(self):
-        if (self._username in Loger.username_dic):
-            self._log_in_btn.click()
-            # self._wait.until(ec.element_to_be_clickable((By.PARTIAL_LINK_TEXT,'Logout')))
-            return True
-        else:
+    def EnterIn(self,username,password):
+        self._usernameField.send_keys(username)
+        self._passwordField.find_element_by_id('passwordfield').send_keys(password)
+        if username not in username_dic:
+            self.browserKiller()
             raise ValueError
+        ## automatically enter the username and password
+
+    def login(self):
+        try:
+            self._log_in_btn.click()
+        except Exception as e:
+            pass
+        finally:
+            self.browserKiller()
 
     def browserKiller(self):
         self._browser.quit()
