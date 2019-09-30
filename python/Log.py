@@ -12,22 +12,17 @@ class Loger:
     username_dic = {
         'q.rong','y.bai1'
     }
+    URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
 
-    def __init__(self,URL,username,password):
-        self.URL = URL
-        self._username = username
-        self._password = password
+    def __init__(self):
 
         ## PWD = "C:\Users\QIZHAOR\Desktop\PROGRAM\WebDevelop\StudyRoom\python\chromedriver.exe"
         self._browser = webdriver.Chrome('{}/chromedriver.exe'.format(os.getcwd()))
-        self._browser.get(URL)
-        self._wait = WebDriverWait(self._browser,2)
+        self._browser.get(Loger.URL)
+        self._wait = WebDriverWait(self._browser,2.5)
 
         self._usernameField = self._browser.find_element_by_id('usernamefield')
         self._passwordField = self._browser.find_element_by_id('passwordfield')
-
-
-        
 
         ## get the log_in button
         self._log_in_btn = self._browser.find_element_by_id('loginsubmitbutton')
@@ -57,19 +52,29 @@ class Loger:
         para_2 = (int(timeS.split(':')[0])-8+1)*2
         para_2 += 1 if (int(timeS.split(':')[1]) > 0) else 0
 
-        sleep(.500)
-        self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
-        sleep(.500)
-        self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
-        sleep(.500)
+        
+        Tomorrow = self._wait.until(
+            ec.element_to_be_clickable(By.XPATH,'//*[@id="calendarModule"]/input[2]')
+            )
+        Tomorrow.click()
+        ##self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
+        
+        TechRoom = self._wait.until(
+            ec.element_to_be_clickable(By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[3]/a')
+            )
+        TechRoom.click()
+        ##self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
 
-        self._Room = self._browser.find_element(By.XPATH,\
-                                                '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.\
-                                                format(str(para_1),str(para_2))).click()
-        sleep(.500)
-##        self._browser.find_element(By.XPATH,\
-                                   
+        Room_str = '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.format(str(para_1),str(para_2))
+        _Room = self._wait.until(ec.element_to_be_clickable(By.XPATH,Room_str))
 
+        _Room.click()
+
+        _PopWin = self._wait.until(
+            ec.visibility_of_element_located(By.ID,'popup'))
+        self._browser.find_elements_by_link_text('Yes').click()
+                                                                              
+                                                                              
 
 
 

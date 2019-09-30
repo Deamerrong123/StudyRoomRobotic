@@ -7,7 +7,7 @@ from Log import Loger
 
 
 class logPage:
-    URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
+    
     Room = [
         'Room 1', 'Room 2','Room 3','Room 4','Room 5','Room 6'
     ]
@@ -99,7 +99,7 @@ class logPage:
 
 
     def _log(self):
-        loger = Loger(logPage.URL, self._username.get(), self._password.get())
+        loger = Loger()
         self._dt = logPage.T - time()
         self._status_msg.set('It is about to act in {} second'.format(self._dt))
         sleep(self._dt)
