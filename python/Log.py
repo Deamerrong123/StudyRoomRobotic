@@ -79,7 +79,7 @@ class Loger:
 
 
 def thread_run_func(Loger,URL,_username,_password,room,timeS):
-    loger = Loger(URL,_username,_password)
+    loger = Loger()
     loger.EnterIn(_username,_password)
     loger.login()
     

@@ -58,7 +58,7 @@ class logPage:
         self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = self.Room)
         self._RoomCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
         self._RoomCbBox.set(logPage.Room[4])
-        self._FromLab = ttk.Label(self._dropMenu,text = 'From :')
+        self._FromLab = ttk.Label(self._dropMenu,text = 'Section 1 :')
         self._FromLab.grid(row = 2, column = 0 , padx = 2 , sticky = (W,S,N))
         self._FromCbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
         self._FromCbBox.grid(row = 3 , column = 0,sticky = (E,S,N))
@@ -69,7 +69,7 @@ class logPage:
             str(int(self._Fromsplit[0])+1)+':'+self._Fromsplit[1],
             str(int(self._Fromsplit[0]) + 2) + ':' + self._Fromsplit[1],
         ]
-        self._ToLab = ttk.Label(self._dropMenu,text = 'To :')
+        self._ToLab = ttk.Label(self._dropMenu,text = 'Section 2 :')
         self._ToLab.grid(row = 4, column = 0 , padx = 2 , sticky = (W,S,N))
         self._ToCbBox = ttk.Combobox(self._dropMenu,width = 7, values = self.ToMenu)
         self._ToCbBox.grid(row = 5 , column = 0,sticky = (E,S,N))
@@ -103,10 +103,8 @@ class logPage:
         self._dt = logPage.T - time()
         self._status_msg.set('It is about to act in {} second'.format(self._dt))
         #sleep(self._dt)
-        sleep(5)
-        try:
-            
-            
+        ##sleep(5)
+        try:           
             sleep(.500)
             loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
             messagebox.showinfo(message = 'Account comfirmed!')
