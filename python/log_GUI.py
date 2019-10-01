@@ -102,9 +102,11 @@ class logPage:
         loger = Loger()
         self._dt = logPage.T - time()
         self._status_msg.set('It is about to act in {} second'.format(self._dt))
-        sleep(self._dt)
+        #sleep(self._dt)
+        sleep(5)
         try:
-            loger.log()
+            
+            
             sleep(.500)
             loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
             messagebox.showinfo(message = 'Account comfirmed!')

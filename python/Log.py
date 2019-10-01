@@ -72,7 +72,7 @@ class Loger:
 
         _PopWin = self._wait.until(
             ec.visibility_of_element_located(By.ID,'popup'))
-        self._browser.find_elements_by_link_text('Yes').click()
+        ##self._browser.find_elements_by_link_text('Yes').click()
                                                                               
                                                                               
 
@@ -80,6 +80,8 @@ class Loger:
 
 def thread_run_func(Loger,URL,_username,_password,room,timeS):
     loger = Loger(URL,_username,_password)
+    loger.EnterIn(_username,_password)
+    loger.login()
     
 
 
