@@ -11,6 +11,9 @@ class logPage:
     Room = [
         'Room 1', 'Room 2','Room 3','Room 4','Room 5','Room 6'
     ]
+    Type =[
+        '2-3 People' , '4-8 People' ,' Technology Room'
+    ]
     From = [
         '12:00','12:30','13:00','13:30','14:00','14:30',
         '15:00','15:30','16:00','16:30','17:00','17:30',
@@ -53,9 +56,16 @@ class logPage:
         ## Dropdown mune
         self._dropMenu = ttk.Frame(self._mainframe)
         self._dropMenu.grid(row = 0, column = 1)
+        ## Type of Study room
+        self._RoomTyeT = ttk.Label(self._dropMenu,text = 'Type :')
+        self._RoomType.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
+        self._RoomTypeCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Type)
+        self._RoomTypeCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
+        self._RoomTypeCbBox.set(logPage.Type[2])
+        ## Room number
         self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
         self._RoomLab.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
-        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = self.Room)
+        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Room)
         self._RoomCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
         self._RoomCbBox.set(logPage.Room[4])
         self._FromLab = ttk.Label(self._dropMenu,text = 'Section 1 :')
