@@ -78,16 +78,17 @@ class Loger:
 
 
 
-def thread_run_func(Loger,URL,_username,_password,room,timeS):
+def thread_run_func(Loger,URL,_username,_password,room,timeS,T_t_sleep):
     loger = Loger()
     loger.EnterIn(_username,_password)
+    time.sleep(T_t_sleep)
     loger.login()
     
 
 
-def Double_log(URL,_username,_password):
-    t1 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
-    t2 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
+def Double_log(URL,_username,_password,_room,sec1,sec2,timeToSleep):
+    t1 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,_room,sec1,timeToSleep))
+    t2 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,_room,sec2,timeToSleep))
     t1.start()
     t2.start()
     t1.join()
