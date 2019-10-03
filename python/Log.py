@@ -72,21 +72,25 @@ class Loger:
 
         _PopWin = self._wait.until(
             ec.visibility_of_element_located(By.ID,'popup'))
-        ##self._browser.find_elements_by_link_text('Yes').click()
+        self._browser.find_elements_by_link_text('Yes').click()
                                                                               
                                                                               
 
 
 
-def thread_run_func(Loger,URL,_username,_password,room,timeS):
+def thread_run_func(_username,_password,room,timeS):
     loger = Loger()
-    loger.EnterIn(_username,_password)
-    loger.login()
-    
-
+    try:
+        loger.EnterIn(_username,_password)
+        loger.login()
+        loger.ReserseRoom(room,timeS)
+    except Exception as e:
+        pass
+    finally:
+        loger.browserKiller()
 
 def Double_log(URL,_username,_password):
-    t1 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
+    t1 = threading.Thread(target = thread_run_func,args =(_username,_password,))
     t2 = threading.Thread(target = thread_run_func,args =(URL,_username,_password,))
     t1.start()
     t2.start()

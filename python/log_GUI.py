@@ -102,7 +102,7 @@ class logPage:
         loger = Loger()
         self._dt = logPage.T - time()
         self._status_msg.set('It is about to act in {} second'.format(self._dt))
-        #sleep(self._dt)
+        sleep(self._dt)
         ##sleep(5)
         try:           
             sleep(.500)
@@ -111,7 +111,7 @@ class logPage:
         except Exception as e:
             messagebox.showerror(message = str(e))
         finally:
-            pass
+            
 
 
 
