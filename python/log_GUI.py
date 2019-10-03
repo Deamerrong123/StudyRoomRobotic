@@ -2,14 +2,20 @@ from tkinter import *
 from tkinter import ttk, filedialog, messagebox
 from time import sleep,time
 from datetime import date,datetime
-# from Log import *
-from Log import Loger
+from Log import *
+import sys
 
 
 class logPage:
-    
-    Room = [
-        'Room 1', 'Room 2','Room 3','Room 4','Room 5','Room 6'
+
+    Room = list()
+    Room_dic = {
+        '4-8 People':[342,346,348,347,446,447,448,542,546,547],
+        '2-3 People':[350,351,352,353,354,355,356,357,450,451,452,453,454,455,550,551,552],
+        'Technology Room':[1,2,3,5,6],
+        }
+    Type =[
+         '4-8 People','2-3 People' ,'Technology Room'
     ]
     From = [
         '12:00','12:30','13:00','13:30','14:00','14:30',
@@ -53,26 +59,36 @@ class logPage:
         ## Dropdown mune
         self._dropMenu = ttk.Frame(self._mainframe)
         self._dropMenu.grid(row = 0, column = 1)
-        self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
-        self._RoomLab.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
-        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = self.Room)
-        self._RoomCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
-        self._RoomCbBox.set(logPage.Room[4])
-        self._FromLab = ttk.Label(self._dropMenu,text = 'Section 1 :')
-        self._FromLab.grid(row = 2, column = 0 , padx = 2 , sticky = (W,S,N))
-        self._FromCbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
-        self._FromCbBox.grid(row = 3 , column = 0,sticky = (E,S,N))
-        self._FromCbBox.set(logPage.From[1])
+        ## Type of Study room
+        self._RoomType = ttk.Label(self._dropMenu,text = 'Type :')
+        self._RoomType.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
+        self._RoomTypeCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Type)
+        self._RoomTypeCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
+        self._RoomTypeCbBox.current(2)
 
-        self._Fromsplit = self._FromCbBox.get().split(':')
-        self.ToMenu = [
-            str(int(self._Fromsplit[0])+1)+':'+self._Fromsplit[1],
-            str(int(self._Fromsplit[0]) + 2) + ':' + self._Fromsplit[1],
-        ]
-        self._ToLab = ttk.Label(self._dropMenu,text = 'Section 2 :')
-        self._ToLab.grid(row = 4, column = 0 , padx = 2 , sticky = (W,S,N))
-        self._ToCbBox = ttk.Combobox(self._dropMenu,width = 7, values = self.ToMenu)
-        self._ToCbBox.grid(row = 5 , column = 0,sticky = (E,S,N))
+        ## Specify the Room number after fixing the type.
+        logPage.Room = self._RoomList(self._RoomTypeCbBox.get())
+        ## Room number
+        self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
+        self._RoomLab.grid(row = 2 , column = 0, padx = 2,sticky = (W,S,N))
+        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Room)
+        self._RoomCbBox.grid(row = 3, column = 0, padx = 1, sticky = (E,S,N))
+        self._RoomCbBox.set(logPage.Room[4])
+        self._Sec1Lab = ttk.Label(self._dropMenu,text = 'Section 1 :')
+        self._Sec1Lab.grid(row = 0, column = 1 , padx = 2 , sticky = (W,S,N))
+        self._Sec1CbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
+        self._Sec1CbBox.grid(row = 1 , column = 1,sticky = (E,S,N))
+        self._Sec1CbBox.set(logPage.From[1])
+
+##        self._Fromsplit = self._FromCbBox.get().split(':')
+##        self.ToMenu = [
+##            str(int(self._Fromsplit[0])+1)+':'+self._Fromsplit[1],
+##            str(int(self._Fromsplit[0]) + 2) + ':' + self._Fromsplit[1],
+##        ]
+        self._Sec2Lab = ttk.Label(self._dropMenu,text = 'Section 2 :')
+        self._Sec2Lab.grid(row = 2, column = 1 , padx = 2 , sticky = (W,S,N))
+        self._Sec2CbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
+        self._Sec2CbBox.grid(row = 3 , column = 1,sticky = (E,S,N))
 
         ## login button
         self._log_btn = ttk.Button(
@@ -96,22 +112,25 @@ class logPage:
         ## mainWin mainloop
         self._parent.mainloop()
 
+    def _RoomList(self,Type):
+        return logPage.Room_dic[Type]
+        
 
 
     def _log(self):
-        loger = Loger()
-        self._dt = logPage.T - time()
-        self._status_msg.set('It is about to act in {} second'.format(self._dt))
-        sleep(self._dt)
-        ##sleep(5)
-        try:           
-            sleep(.500)
-            loger.ReserseRoom(self._RoomCbBox.get(),self._FromCbBox.get())
+        ##timeToSleep = logPage.T - time()
+        timeToSleep = 5
+        self._status_msg.set('It is about to act in {} second'.format(timeToSleep))
+        try:
+            Double_log(
+                self._username.get(),self._password.get(),self._RoomTypeCbBox.current(),\
+                self._RoomCbBox.current(),self._Sec1CbBox.get(),self._Sec2CbBox.get(),timeToSleep
+                )
             messagebox.showinfo(message = 'Account comfirmed!')
         except Exception as e:
             messagebox.showerror(message = str(e))
         finally:
-            
+            sys.exit()
 
 
 
