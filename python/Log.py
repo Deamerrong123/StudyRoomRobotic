@@ -45,13 +45,14 @@ class Loger:
             pass
         finally:
             #self.browserKiller()
+            pass
 
     def browserKiller(self):
         self._browser.quit()
 
 
     def ReserseRoom(self,Type,room,timeS):
-        para_1 = int(room) + 1
+        para_1 = int(room) + 2
         para_2 = (int(timeS.split(':')[0])-8+1)*2
         para_2 += 1 if (int(timeS.split(':')[1]) > 0) else 0
 
@@ -63,7 +64,7 @@ class Loger:
         ##self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
         
         RoomType = self._wait.until(
-            ec.element_to_be_clickable((By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{}]/a'.formate(str(Type+1))))
+            ec.element_to_be_clickable((By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{}]/a'.format(str(Type+1))))
             )
         RoomType.click()
         ##self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
@@ -89,9 +90,9 @@ def thread_run_func(_username,_password,Type,room,timeS,T_t_sleep):
 
 def Double_log(_username,_password,_Type,_room,sec1,sec2,timeToSleep):
     t1 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec1,timeToSleep,))
-##    t2 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec2,timeToSleep))
+    t2 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec2,timeToSleep))
     t1.start()
-##    t2.start()
+    t2.start()
     
         
 

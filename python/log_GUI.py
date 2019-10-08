@@ -75,18 +75,19 @@ class logPage:
         ## Type of Study room
         self._RoomType = ttk.Label(self._dropMenu,text = 'Type :')
         self._RoomType.grid(row = 0 , column = 0, padx = 2,sticky = (W,S,N))
-        self._RoomTypeCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Type)
+        self._RoomTypeCbBox = ttk.Combobox(self._dropMenu,width = 7,\
+                                           values = logPage.Type,postcommand=self._RoomList)
         self._RoomTypeCbBox.grid(row = 1, column = 0, padx = 1, sticky = (E,S,N))
-        self._RoomTypeCbBox.current(2)
+        self._RoomTypeCbBox.set(logPage.Type[2])
+        
 
         ## Specify the Room number after fixing the type.
-        logPage.Room = self._RoomList(self._RoomTypeCbBox.get())
+        #logPage.Room = self._RoomList(self._RoomTypeCbBox.get())
         ## Room number
-        self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
-        self._RoomLab.grid(row = 2 , column = 0, padx = 2,sticky = (W,S,N))
-        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Room)
-        self._RoomCbBox.grid(row = 3, column = 0, padx = 1, sticky = (E,S,N))
-        self._RoomCbBox.set(logPage.Room[4])
+
+        ##self._RoomCbBox.set(logPage.Room[0])
+
+        ## Specify the time for section one
         self._Sec1Lab = ttk.Label(self._dropMenu,text = 'Section 1 :')
         self._Sec1Lab.grid(row = 0, column = 1 , padx = 2 , sticky = (W,S,N))
         self._Sec1CbBox = ttk.Combobox(self._dropMenu,width = 7, values = logPage.From)
@@ -124,8 +125,12 @@ class logPage:
 
         self._parent.mainloop()
 
-    def _RoomList(self,Type):
-        return logPage.Room_dic[Type]
+    def _RoomList(self):
+        logPage.Room = logPage.Room_dic[self._RoomTypeCbBox.get()]
+        self._RoomLab = ttk.Label(self._dropMenu,text = 'Room :')
+        self._RoomLab.grid(row = 2 , column = 0, padx = 2,sticky = (W,S,N))
+        self._RoomCbBox = ttk.Combobox(self._dropMenu,width = 7,values = logPage.Room)
+        self._RoomCbBox.grid(row = 3, column = 0, padx = 1, sticky = (E,S,N))
         
 
 
