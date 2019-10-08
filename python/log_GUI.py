@@ -25,6 +25,10 @@ class logPage:
 
     T = datetime(date.today().year,\
                  date.today().month,date.today().day).timestamp()+(60*60*24)
+    Mode = [
+        ('Demo','d'),
+        ('Actual','a'),
+        ]
 
 
     def __init__(self):
@@ -54,6 +58,15 @@ class logPage:
         self._password_Entry = ttk.Entry(self._password_field,width = 20,
                                          textvariable = self._password)
         self._password_Entry.grid(row = 0 , column = 0 , sticky = (W,E))
+        
+        self._RatioFrame  = ttk.LabelFrame(self._user_frame,padding = '2 2 2 2')
+        self._RatioFrame.grid(row = 2, column = 0)
+        self._Choice = IntVar()
+        R1 = ttk.Radiobutton(self._RatioFrame,text = 'Demo',variable = self._Choice,value = 0)
+        R1.grid(row = 0, column = 0, sticky = (W,N))
+        R2 = ttk.Radiobutton(self._RatioFrame, text = 'Actual',variable = self._Choice,value = 1)
+        R2.grid(row = 0 , column = 1, stick = (W,N))
+        
 
 
         ## Dropdown mune
@@ -109,7 +122,6 @@ class logPage:
 
 
 
-        ## mainWin mainloop
         self._parent.mainloop()
 
     def _RoomList(self,Type):
@@ -118,8 +130,10 @@ class logPage:
 
 
     def _log(self):
-        ##timeToSleep = logPage.T - time()
-        timeToSleep = 5
+        if self._Choice.get():
+            timeToSleep = logPage.T - time()
+        else:
+            timeToSleep = 5
         self._status_msg.set('It is about to act in {} second'.format(timeToSleep))
         try:
             Double_log(

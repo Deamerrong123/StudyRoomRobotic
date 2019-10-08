@@ -10,7 +10,7 @@ import os
 
 class Loger:
     username_dic = {
-        'q.rong','y.bai1'
+        'q.rong','y.bai1',
     }
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
 
@@ -44,7 +44,7 @@ class Loger:
         except Exception as e:
             pass
         finally:
-            self.browserKiller()
+            #self.browserKiller()
 
     def browserKiller(self):
         self._browser.quit()
@@ -57,25 +57,25 @@ class Loger:
 
         
         Tomorrow = self._wait.until(
-            ec.element_to_be_clickable(By.XPATH,'//*[@id="calendarModule"]/input[2]')
+            ec.element_to_be_clickable((By.XPATH,'//*[@id="calendarModule"]/input[2]'))
             )
         Tomorrow.click()
         ##self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
         
         RoomType = self._wait.until(
-            ec.element_to_be_clickable(By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{}]/a'.formate(str(Type+1)))
+            ec.element_to_be_clickable((By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{}]/a'.formate(str(Type+1))))
             )
         RoomType.click()
         ##self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
 
         Room_str = '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.format(str(para_1),str(para_2))
-        _Room = self._wait.until(ec.element_to_be_clickable(By.XPATH,Room_str))
+        _Room = self._wait.until(ec.element_to_be_clickable((By.XPATH,Room_str)))
 
         _Room.click()
 
         _PopWin = self._wait.until(
-            ec.visibility_of_element_located(By.ID,'popup'))
-        ##self._browser.find_elements_by_link_text('Yes').click()
+            ec.visibility_of_element_located((By.ID,'popup')))
+        self._browser.find_elements_by_link_text('Yes').click()
                                                                               
                                                                               
 def thread_run_func(_username,_password,Type,room,timeS,T_t_sleep):
@@ -88,7 +88,7 @@ def thread_run_func(_username,_password,Type,room,timeS,T_t_sleep):
 
 
 def Double_log(_username,_password,_Type,_room,sec1,sec2,timeToSleep):
-    t1 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec1,timeToSleep))
+    t1 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec1,timeToSleep,))
 ##    t2 = threading.Thread(target = thread_run_func,args =(_username,_password,_Type,_room,sec2,timeToSleep))
     t1.start()
 ##    t2.start()
