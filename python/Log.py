@@ -76,7 +76,8 @@ class Loger:
 
         _PopWin = self._wait.until(
             ec.visibility_of_element_located((By.ID,'popup')))
-        self._browser.find_elements_by_link_text('Yes').click()
+##        self._browser.find_elements_by_link_text('Yes').click()
+        self._browser.find_element(By.XPATH,'//*[@id="popup"]/form/center/a[1]').click()
                                                                               
                                                                               
 def thread_run_func(_username,_password,Type,room,timeS,T_t_sleep):
