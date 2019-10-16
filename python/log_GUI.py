@@ -12,7 +12,7 @@ class logPage:
     Room_dic = {
         '4-8 People':[342,346,348,347,446,447,448,542,546,547],
         '2-3 People':[350,351,352,353,354,355,356,357,450,451,452,453,454,455,550,551,552],
-        'Technology Room':[1,2,3,5,6],
+        'Technology Room':[1,2,3,4,5,6],
         }
     Type =[
          '4-8 People','2-3 People' ,'Technology Room'

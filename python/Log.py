@@ -52,7 +52,7 @@ class Loger:
 
 
     def ReserseRoom(self,Type,room,timeS):
-        para_1 = int(room) + 2
+        para_1 = room + 2
         para_2 = (int(timeS.split(':')[0])-8+1)*2
         para_2 += 1 if (int(timeS.split(':')[1]) > 0) else 0
 
