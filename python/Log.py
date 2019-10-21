@@ -10,7 +10,7 @@ import os
 
 class Loger:
     username_dic = {
-        'q.rong','y.bai1',
+        'q.rong','y.bai1','T.yang4'
     }
     URL = 'https://www.baruch.cuny.edu/library/reservaroom/'
 
@@ -64,10 +64,11 @@ class Loger:
         ##self._browser.find_element_by_xpath('//*[@id="calendarModule"]/input[2]').click()
         
         RoomType = self._wait.until(
-            ec.element_to_be_clickable((By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{}]/a'.format(str(Type+1))))
+            ec.element_to_be_clickable((By.XPATH,'//*[@id="grouptabs"]/tbody/tr/td[{0}]/a'.format(str(Type+1))))
             )
         RoomType.click()
         ##self._browser.find_element_by_xpath('//*[@id="grouptabs"]/tbody/tr/td[3]/a').click()
+        ## //*[@id="grouptabs"]/tbody/tr/td[3]/a
 
         Room_str = '//*[@id="dayviewTable"]/tbody/tr[{1}]/td[{0}]/img'.format(str(para_1),str(para_2))
         _Room = self._wait.until(ec.element_to_be_clickable((By.XPATH,Room_str)))
@@ -82,10 +83,10 @@ class Loger:
                                                                               
 def thread_run_func(_username,_password,Type,room,timeS,T_t_sleep):
     loger = Loger()
-    sleep(T_t_sleep)
-    loger.EnterIn(_username,_password)
-    loger.login()
-    loger.ReserseRoom(Type,room,timeS)
+    loger.EnterIn(_username,_password) ## First enter the username and passwors
+    sleep(T_t_sleep)    ## Sleep unit 00:00:00
+    loger.login()       ## Login the page
+    loger.ReserseRoom(Type,room,timeS) ## for resering the room
     
 
 
