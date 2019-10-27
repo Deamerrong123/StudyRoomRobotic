@@ -19,7 +19,7 @@ class Loger:
         ## PWD = "C:\Users\QIZHAOR\Desktop\PROGRAM\WebDevelop\StudyRoom\python\chromedriver.exe"
         self._browser = webdriver.Chrome('{}/chromedriver.exe'.format(os.getcwd()))
         self._browser.get(Loger.URL)
-        self._wait = WebDriverWait(self._browser,2.5)
+        self._wait = WebDriverWait(self._browser,30)
 
         self._usernameField = self._browser.find_element_by_id('usernamefield')
         sleep(.5)
