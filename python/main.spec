@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/mnt/c/Users/qizhao/Desktop/PROGRAM/WebDevelop/StudyRoomRobotic/python'],
+             pathex=['C:\\Users\\QIZHAOR\\Desktop\\PROGRAM\\WebDevelop\\StudyRoom\\python'],
              binaries=[],
              datas=[],
              hiddenimports=[],
