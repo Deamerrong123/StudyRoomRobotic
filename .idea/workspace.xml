@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb16861-c2b0-4d2a-9e91-48eb488b87fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/StudyRoom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StudyRoom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/PKG-00.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/PYZ-00.pyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/build/main/xref-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/python/build/main/xref-main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/log_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/log_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/python/main.exe" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="StudyRoom" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -181,6 +196,9 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -201,6 +219,9 @@
       <workItem from="1568264968384" duration="6262000" />
       <workItem from="1568303909775" duration="2685000" />
       <workItem from="1570073348777" duration="774000" />
+      <workItem from="1573008894914" duration="6325000" />
+      <workItem from="1573663253972" duration="726000" />
+      <workItem from="1573664439079" duration="872000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk, filedialog, messagebox
-from time import sleep,time
+from time import time
 from datetime import date,datetime
 from Log import *
 import sys
@@ -25,6 +25,9 @@ class logPage:
 
     T = datetime(date.today().year,\
                  date.today().month,date.today().day).timestamp()+(60*60*24)
+##    T = datetime(date.today().year,\
+##                 date.today().month,date.today().day+1).timestamp()
+    
     Mode = [
         ('Demo','d'),
         ('Actual','a'),
@@ -136,10 +139,11 @@ class logPage:
 
     def _log(self):
         if self._Choice.get():
-            timeToSleep = logPage.T - time()
+            timeToSleep = logPage.T
         else:
-            timeToSleep = 5
-        self._status_msg.set('It is about to act in {} second'.format(timeToSleep))
+            timeToSleep = 10 + time()
+        self._status_msg.set('It is {} and room {}'.format(self._RoomTypeCbBox.get(),self._RoomCbBox.get()))
+        print('It is {} and room {}'.format(self._RoomTypeCbBox.get(),self._RoomCbBox.get()))
         try:
             Double_log(
                 self._username.get(),self._password.get(),self._RoomTypeCbBox.current(),\
